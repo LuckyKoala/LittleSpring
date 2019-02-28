@@ -1,10 +1,10 @@
-package tech.zuosi.lk.littlespring;
+package tech.zuosi.lk.littlespring.ioc.manualwiring;
 
-import org.junit.Assert;
 import org.junit.Test;
+import tech.zuosi.lk.littlespring.LittleSpring;
 import tech.zuosi.lk.littlespring.exception.InvalidBeanException;
-import tech.zuosi.lk.littlespring.ioc.Bean;
-import tech.zuosi.lk.littlespring.ioc.Configuration;
+import tech.zuosi.lk.littlespring.ioc.annotation.Bean;
+import tech.zuosi.lk.littlespring.ioc.annotation.Configuration;
 
 /**
  * Created by luckykoala on 19-2-28.

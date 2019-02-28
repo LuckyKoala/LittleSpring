@@ -1,6 +1,6 @@
-package tech.zuosi.lk.littlespring;
+package tech.zuosi.lk.littlespring.ioc.manualwiring;
 
-import tech.zuosi.lk.littlespring.ioc.Bean;
+import tech.zuosi.lk.littlespring.ioc.annotation.Bean;
 
 /**
  * Created by luckykoala on 19-2-28.

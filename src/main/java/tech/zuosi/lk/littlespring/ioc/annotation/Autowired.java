@@ -1,4 +1,4 @@
-package tech.zuosi.lk.littlespring.ioc;
+package tech.zuosi.lk.littlespring.ioc.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,9 +7,10 @@ import java.lang.annotation.Target;
 
 /**
  * Created by luckykoala on 19-2-28.
- * 表明该类中包含有Bean的配置
+ * 表示该依赖将由框架自动注入
  */
-@Target(ElementType.TYPE)
+@Target(ElementType.CONSTRUCTOR)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Configuration {
+public @interface Autowired {
+    String[] value() default {};
 }
