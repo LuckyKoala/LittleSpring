@@ -18,9 +18,13 @@ import java.util.stream.Collectors;
  * Created by luckykoala on 19-2-28.
  */
 public class PackageScanner {
+    private static final char PACKAGE_SEPRATOR = '.';
+    private static final char PATH_SEPARATOR = '/';
+    private static final String CLASS_FILE_SUFFIX = ".class";
+
     public static void scan(BeanFactory beanFactory, String packageStr)
             throws InvalidPackageException, NoSuitableConstructorForComponentException {
-        String packageUrl = packageStr.replace('.', '/');
+        String packageUrl = packageStr.replace(PACKAGE_SEPRATOR, PATH_SEPARATOR);
         URL url = Thread.currentThread().getContextClassLoader().getResource(packageUrl);
         if(url == null) throw new InvalidPackageException(packageStr, null);
         try {
@@ -28,8 +32,9 @@ public class PackageScanner {
                     .map(Path::getFileName)
                     .map(filePath -> {
                         try {
-                            return Thread.currentThread().getContextClassLoader()
-                                    .loadClass(packageStr + filePath.toString());
+                            String className = packageStr + PACKAGE_SEPRATOR + withoutSuffix(filePath.toString(),
+                                    CLASS_FILE_SUFFIX);
+                            return Class.forName(className);
                         } catch (ClassNotFoundException e) {
                             return null;
                         }
@@ -41,5 +46,11 @@ public class PackageScanner {
         } catch (IOException | URISyntaxException e) {
             throw new InvalidPackageException(packageStr, e);
         }
+    }
+
+    private static String withoutSuffix(String str, String suffix) {
+        if(str.isEmpty() || suffix.isEmpty()) return str;
+        if(str.endsWith(suffix)) return str.substring(0, str.length()-suffix.length());
+        else return str;
     }
 }

@@ -42,7 +42,7 @@ public class BeanDefinition {
                 for(String id : dependencies) {
                     args[i++] = beanFactory.getBean(id);
                 }
-                constructor.newInstance(args);
+                instance = constructor.newInstance(args);
             }
         }
 

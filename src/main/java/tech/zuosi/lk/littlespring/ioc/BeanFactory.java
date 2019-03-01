@@ -19,7 +19,7 @@ import java.util.stream.Stream;
  * Created by luckykoala on 19-2-28.
  */
 public class BeanFactory {
-    private static final Map<String, BeanDefinition> beanMap = new HashMap<>(); //保存beanId和bean定义的映射关系
+    private final Map<String, BeanDefinition> beanMap = new HashMap<>(); //保存beanId和bean定义的映射关系
 
     public Object getBean(String beanId)
             throws InvocationTargetException, IllegalAccessException, InstantiationException {

@@ -4,4 +4,7 @@
 
 目前计划： IoC, AOP
 
-已实现： 手工装配(BeanFactory, @Bean, @Configuration, @Import)
+已实现：
+
+* 手工装配(BeanFactory, @Bean, @Configuration, @Import)
+* 自动装配(@Component, @Autowired, @ComponentScan) 目前仅支持构造器自动注入

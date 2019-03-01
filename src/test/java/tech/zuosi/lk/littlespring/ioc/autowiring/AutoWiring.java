@@ -11,8 +11,13 @@ import tech.zuosi.lk.littlespring.ioc.annotation.ComponentScan;
 @ComponentScan
 public class AutoWiring {
     @Test
-    public void test() throws Exception {
-        LittleSpring context = new LittleSpring(AutoWiring.class);
-        Assert.assertNotNull(context.getBean("whole"));
+    public void test() {
+        try {
+            LittleSpring context = new LittleSpring(AutoWiring.class);
+            Assert.assertNotNull(context.getBean("Piece"));
+            Assert.assertNotNull(context.getBean("Whole"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
