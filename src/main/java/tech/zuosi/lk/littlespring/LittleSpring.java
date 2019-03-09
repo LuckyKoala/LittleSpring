@@ -18,15 +18,11 @@ import java.lang.annotation.Annotation;
 public class LittleSpring {
     private ApplicationContext context = new ApplicationContext();
 
-    public LittleSpring(Class clazz)
-            throws IllegalAccessException, InvalidBeanException,
-            InvalidConfigurationException, InstantiationException,
-            NoSuitableConstructorForComponentException, InvalidPackageException {
-
+    public LittleSpring(Class clazz) throws Exception {
         context.readConfig(clazz);
     }
 
-    public Object getBean(String beanId) throws Exception {
+    public Object getBean(String beanId) throws ReflectiveOperationException {
         return context.getBean(beanId);
     }
 }

@@ -10,7 +10,6 @@ import tech.zuosi.lk.littlespring.ioc.annotation.Configuration;
 import tech.zuosi.lk.littlespring.ioc.annotation.Import;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.InvocationTargetException;
 
 /**
  * Created by luckykoala on 19-3-9.
@@ -20,13 +19,11 @@ public class ApplicationContext {
 
     public ApplicationContext() {}
 
-    public Object getBean(String beanId) throws IllegalAccessException, InstantiationException, InvocationTargetException {
+    public Object getBean(String beanId) throws ReflectiveOperationException {
         return beanFactory.getBean(beanId);
     }
 
-    public void readConfig(Class clazz)
-            throws InvalidBeanException, IllegalAccessException, InstantiationException,
-            InvalidConfigurationException, NoSuitableConstructorForComponentException, InvalidPackageException {
+    public void readConfig(Class clazz) throws Exception {
         //尝试读取传入的配置类
         if(clazz.isAnnotationPresent(Configuration.class)) beanFactory.readConfig(clazz);
         //读取导入的配置类
