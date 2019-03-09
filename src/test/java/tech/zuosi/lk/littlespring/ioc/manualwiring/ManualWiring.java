@@ -24,7 +24,7 @@ public class ManualWiring {
 
     @Test
     public void testBeanAnnotation() throws Exception {
-        Assert.assertNotNull(context.getBean("bean1"));
+        Assert.assertNotNull(context.getBean("FakeBean"));
         Assert.assertNotNull(context.getBean("b2"));
     }
 

@@ -8,7 +8,7 @@ import tech.zuosi.lk.littlespring.ioc.annotation.Configuration;
  */
 @Configuration
 public class ThirdConfig {
-    @Bean
+    @Bean("bean4")
     public FakeBean bean4() {
         return new FakeBean();
     }

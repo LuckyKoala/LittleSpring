@@ -21,23 +21,22 @@ import java.util.stream.Stream;
 public class BeanFactory {
     private final Map<String, BeanDefinition> beanMap = new HashMap<>(); //保存beanId和bean定义的映射关系
 
-    public Object getBean(String beanId)
-            throws InvocationTargetException, IllegalAccessException, InstantiationException {
+    public Object getBean(String beanId) throws ReflectiveOperationException {
         BeanDefinition beanDefinition = beanMap.get(beanId);
         if(beanDefinition == null) return null;
         return beanDefinition.getInstance(this);
     }
 
-    public void readConfig(Class clazz)
-            throws InvalidBeanException, IllegalAccessException, InstantiationException {
+    public void readConfig(Class clazz) throws ReflectiveOperationException {
         Object instance = clazz.newInstance();
         for(Method method : clazz.getDeclaredMethods()) {
             Bean bean = method.getAnnotation(Bean.class);
             if(bean==null) continue;
             String beanId = bean.value();
-            if(beanId.isEmpty()) beanId = method.getName();
-            if(method.getParameterCount() > 0) throw new InvalidBeanException(method.getName());
-            beanMap.put(beanId, new BeanDefinition(instance, method));
+            if(beanId.isEmpty()) beanId = method.getReturnType().getSimpleName();
+            beanMap.put(beanId, new BeanDefinition(Stream.of(method.getParameterTypes())
+                    .map(Class::getSimpleName)
+                    .collect(Collectors.toList()), instance, method));
         }
     }
 

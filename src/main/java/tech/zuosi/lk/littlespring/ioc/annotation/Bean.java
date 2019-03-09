@@ -12,5 +12,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Bean {
-    String value() default ""; //Bean id
+    String value() default ""; //Bean id 默认为方法返回类型名
 }

@@ -11,18 +11,19 @@ import java.util.List;
 public class BeanDefinition {
     private Type type;
     private Object instance; //默认单例
+    private List<String> dependencies;
     //===For BEAN===
     private Object object;
     private Method method;
     //===For COMPONENT===
-    private List<String> dependencies;
     private Constructor constructor;
 
 
-    public BeanDefinition(Object object, Method method) {
+    public BeanDefinition(List<String> dependencies, Object object, Method method) {
         this.type = Type.BEAN;
         this.object = object;
         this.method = method;
+        this.dependencies = dependencies;
     }
 
     public BeanDefinition(List<String> dependencies, Constructor constructor) {
@@ -31,19 +32,14 @@ public class BeanDefinition {
         this.constructor = constructor;
     }
 
-    public Object getInstance(BeanFactory beanFactory)
-            throws InvocationTargetException, IllegalAccessException, InstantiationException {
+    public Object getInstance(BeanFactory beanFactory) throws ReflectiveOperationException {
         if(instance == null) {
-            if(type == Type.BEAN) {
-                instance = method.invoke(object);
-            } else if(type == Type.COMPONENT) {
-                Object[] args = new Object[dependencies.size()];
-                int i = 0;
-                for(String id : dependencies) {
-                    args[i++] = beanFactory.getBean(id);
-                }
-                instance = constructor.newInstance(args);
-            }
+            Object[] args = new Object[dependencies.size()];
+            int i = 0;
+            for(String id : dependencies) args[i++] = beanFactory.getBean(id);
+
+            if(type == Type.BEAN) instance = method.invoke(object, args);
+            else if(type == Type.COMPONENT) instance = constructor.newInstance(args);
         }
 
         return instance;

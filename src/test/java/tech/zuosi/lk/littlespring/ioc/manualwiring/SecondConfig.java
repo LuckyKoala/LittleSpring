@@ -5,7 +5,7 @@ import tech.zuosi.lk.littlespring.ioc.annotation.Configuration;
 
 @Configuration
 public class SecondConfig {
-    @Bean
+    @Bean("bean3")
     public FakeBean bean3() {
         return new FakeBean();
     }
