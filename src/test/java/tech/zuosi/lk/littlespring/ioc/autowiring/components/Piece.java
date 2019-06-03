@@ -1,4 +1,4 @@
-package tech.zuosi.lk.littlespring.ioc.autowiring;
+package tech.zuosi.lk.littlespring.ioc.autowiring.components;
 
 import tech.zuosi.lk.littlespring.ioc.annotation.Component;
 

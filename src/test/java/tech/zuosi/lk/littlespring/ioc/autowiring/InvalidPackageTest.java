@@ -12,6 +12,6 @@ import tech.zuosi.lk.littlespring.ioc.annotation.ComponentScan;
 public class InvalidPackageTest {
     @Test(expected = InvalidPackageException.class)
     public void test() throws Exception {
-        LittleSpring context = new LittleSpring(InvalidPackageTest.class);
+        new LittleSpring(InvalidPackageTest.class);
     }
 }

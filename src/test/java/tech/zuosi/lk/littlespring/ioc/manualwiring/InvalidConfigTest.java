@@ -5,6 +5,7 @@ import tech.zuosi.lk.littlespring.LittleSpring;
 import tech.zuosi.lk.littlespring.exception.InvalidConfigurationException;
 import tech.zuosi.lk.littlespring.ioc.annotation.Configuration;
 import tech.zuosi.lk.littlespring.ioc.annotation.Import;
+import tech.zuosi.lk.littlespring.ioc.manualwiring.configs.FourthConfig;
 
 /**
  * Created by luckykoala on 19-2-28.

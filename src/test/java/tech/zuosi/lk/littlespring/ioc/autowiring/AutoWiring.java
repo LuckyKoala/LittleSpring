@@ -8,7 +8,7 @@ import tech.zuosi.lk.littlespring.ioc.annotation.ComponentScan;
 /**
  * Created by luckykoala on 19-2-28.
  */
-@ComponentScan
+@ComponentScan(basePackages = "tech.zuosi.lk.littlespring.ioc.autowiring.components")
 public class AutoWiring {
     @Test
     public void test() {

@@ -3,9 +3,10 @@ package tech.zuosi.lk.littlespring.ioc.manualwiring;
 import org.junit.Assert;
 import org.junit.Test;
 import tech.zuosi.lk.littlespring.LittleSpring;
-import tech.zuosi.lk.littlespring.exception.InvalidBeanException;
 import tech.zuosi.lk.littlespring.ioc.annotation.Bean;
 import tech.zuosi.lk.littlespring.ioc.annotation.Configuration;
+import tech.zuosi.lk.littlespring.ioc.manualwiring.beans.FakeBean;
+import tech.zuosi.lk.littlespring.ioc.manualwiring.beans.FakeBeanDependency;
 
 /**
  * Created by luckykoala on 19-2-28.
@@ -22,7 +23,7 @@ public class BeanDependencyInjectionTest {
     @Test(expected = IllegalArgumentException.class)
     public void illegalArgument() throws Exception {
         LittleSpring context = new LittleSpring(BeanDependencyInjectionTest.class);
-        context.getBean("failure");
+        context.getBean("failure"); //参数无法注入
     }
 
     @Bean()

@@ -7,6 +7,9 @@ import tech.zuosi.lk.littlespring.LittleSpring;
 import tech.zuosi.lk.littlespring.ioc.annotation.Bean;
 import tech.zuosi.lk.littlespring.ioc.annotation.Configuration;
 import tech.zuosi.lk.littlespring.ioc.annotation.Import;
+import tech.zuosi.lk.littlespring.ioc.manualwiring.beans.FakeBean;
+import tech.zuosi.lk.littlespring.ioc.manualwiring.configs.SecondConfig;
+import tech.zuosi.lk.littlespring.ioc.manualwiring.configs.ThirdConfig;
 
 /**
  * Created by luckykoala on 19-2-28.

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LittleSpring.iml" filepath="$PROJECT_DIR$/.idea/modules/LittleSpring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LittleSpring.iml" filepath="$PROJECT_DIR$/.idea/modules/LittleSpring.iml" group="LittleSpring" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/LittleSpring_main.iml" filepath="$PROJECT_DIR$/.idea/modules/LittleSpring_main.iml" group="LittleSpring" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/LittleSpring_test.iml" filepath="$PROJECT_DIR$/.idea/modules/LittleSpring_test.iml" group="LittleSpring" />
     </modules>

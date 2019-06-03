@@ -1,9 +1,6 @@
 package tech.zuosi.lk.littlespring.context;
 
-import tech.zuosi.lk.littlespring.exception.InvalidBeanException;
 import tech.zuosi.lk.littlespring.exception.InvalidConfigurationException;
-import tech.zuosi.lk.littlespring.exception.InvalidPackageException;
-import tech.zuosi.lk.littlespring.exception.NoSuitableConstructorForComponentException;
 import tech.zuosi.lk.littlespring.ioc.BeanFactory;
 import tech.zuosi.lk.littlespring.ioc.annotation.ComponentScan;
 import tech.zuosi.lk.littlespring.ioc.annotation.Configuration;
@@ -12,6 +9,8 @@ import tech.zuosi.lk.littlespring.ioc.annotation.Import;
 import java.lang.annotation.Annotation;
 
 /**
+ * 应用上下文
+ *
  * Created by luckykoala on 19-3-9.
  */
 public class ApplicationContext {

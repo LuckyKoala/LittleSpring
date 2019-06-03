@@ -1,11 +1,14 @@
 package tech.zuosi.lk.littlespring.ioc;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 
 /**
+ * Bean 定义，保存
+ *  1. 需要用于构造Bean实例的构造方法/实例方法
+ *  2. 对其他bean的依赖
+ *
  * Created by luckykoala on 19-2-28.
  */
 public class BeanDefinition {

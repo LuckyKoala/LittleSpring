@@ -1,21 +1,21 @@
 package tech.zuosi.lk.littlespring.ioc;
 
-import tech.zuosi.lk.littlespring.exception.NoSuitableConstructorForComponentException;
-import tech.zuosi.lk.littlespring.exception.InvalidBeanException;
 import tech.zuosi.lk.littlespring.exception.InvalidPackageException;
+import tech.zuosi.lk.littlespring.exception.NoSuitableConstructorForComponentException;
 import tech.zuosi.lk.littlespring.io.PackageScanner;
 import tech.zuosi.lk.littlespring.ioc.annotation.Autowired;
 import tech.zuosi.lk.littlespring.ioc.annotation.Bean;
 import tech.zuosi.lk.littlespring.ioc.annotation.Component;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
+ * Bean工厂类，读取bean定义，保存beanId与bean定义的映射关系
+ *
  * Created by luckykoala on 19-2-28.
  */
 public class BeanFactory {

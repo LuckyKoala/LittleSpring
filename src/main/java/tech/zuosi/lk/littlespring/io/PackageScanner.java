@@ -22,6 +22,13 @@ public class PackageScanner {
     private static final char PATH_SEPARATOR = '/';
     private static final String CLASS_FILE_SUFFIX = ".class";
 
+    /**
+     * 遍历查找指定包下的class文件，加载并读取配置
+     * @param beanFactory bean工厂实例
+     * @param packageStr 包名
+     * @throws InvalidPackageException 找不到指定的包
+     * @throws NoSuitableConstructorForComponentException 找不到合适的构造器来构造组件的实例
+     */
     public static void scan(BeanFactory beanFactory, String packageStr)
             throws InvalidPackageException, NoSuitableConstructorForComponentException {
         String packageUrl = packageStr.replace(PACKAGE_SEPRATOR, PATH_SEPARATOR);
