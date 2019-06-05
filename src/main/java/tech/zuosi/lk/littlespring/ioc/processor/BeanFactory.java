@@ -1,11 +1,12 @@
-package tech.zuosi.lk.littlespring.ioc;
+package tech.zuosi.lk.littlespring.ioc.processor;
 
-import tech.zuosi.lk.littlespring.exception.InvalidPackageException;
-import tech.zuosi.lk.littlespring.exception.NoSuitableConstructorForComponentException;
-import tech.zuosi.lk.littlespring.io.PackageScanner;
+import tech.zuosi.lk.littlespring.context.ApplicationContext;
 import tech.zuosi.lk.littlespring.ioc.annotation.Autowired;
 import tech.zuosi.lk.littlespring.ioc.annotation.Bean;
 import tech.zuosi.lk.littlespring.ioc.annotation.Component;
+import tech.zuosi.lk.littlespring.ioc.exception.InvalidPackageException;
+import tech.zuosi.lk.littlespring.ioc.exception.NoSuitableConstructorForComponentException;
+import tech.zuosi.lk.littlespring.ioc.io.PackageScanner;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -20,8 +21,15 @@ import java.util.stream.Stream;
  */
 public class BeanFactory {
     private final Map<String, BeanDefinition> beanMap = new HashMap<>(); //保存beanId和bean定义的映射关系
+    private ApplicationContext context;
+
+    public BeanFactory(ApplicationContext context) {
+        this.context = context;
+    }
 
     public Object getBean(String beanId) throws ReflectiveOperationException {
+        if(beanId.equals(ApplicationContext.class.getSimpleName())) return context;
+
         BeanDefinition beanDefinition = beanMap.get(beanId);
         if(beanDefinition == null) return null;
         return beanDefinition.getInstance(this);

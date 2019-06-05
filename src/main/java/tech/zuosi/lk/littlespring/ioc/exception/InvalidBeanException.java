@@ -1,4 +1,4 @@
-package tech.zuosi.lk.littlespring.exception;
+package tech.zuosi.lk.littlespring.ioc.exception;
 
 /**
  * Created by luckykoala on 19-2-28.

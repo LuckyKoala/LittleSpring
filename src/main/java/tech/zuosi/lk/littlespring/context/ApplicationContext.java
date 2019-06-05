@@ -1,10 +1,11 @@
 package tech.zuosi.lk.littlespring.context;
 
-import tech.zuosi.lk.littlespring.exception.InvalidConfigurationException;
-import tech.zuosi.lk.littlespring.ioc.BeanFactory;
+import tech.zuosi.lk.littlespring.aop.annotation.AspectEnable;
 import tech.zuosi.lk.littlespring.ioc.annotation.ComponentScan;
 import tech.zuosi.lk.littlespring.ioc.annotation.Configuration;
 import tech.zuosi.lk.littlespring.ioc.annotation.Import;
+import tech.zuosi.lk.littlespring.ioc.exception.InvalidConfigurationException;
+import tech.zuosi.lk.littlespring.ioc.processor.BeanFactory;
 
 import java.lang.annotation.Annotation;
 
@@ -14,7 +15,8 @@ import java.lang.annotation.Annotation;
  * Created by luckykoala on 19-3-9.
  */
 public class ApplicationContext {
-    private BeanFactory beanFactory = new BeanFactory();
+    private BeanFactory beanFactory = new BeanFactory(this);
+    private boolean aspectEnabled = false;
 
     public ApplicationContext() {}
 
@@ -43,5 +45,13 @@ public class ApplicationContext {
                 beanFactory.autoScan(clazz.getPackage().getName());
             }
         }
+        //尝试启用AOP
+        if(clazz.isAnnotationPresent(AspectEnable.class)) {
+            aspectEnabled = true;
+        }
+    }
+
+    public boolean isAspectEnabled() {
+        return aspectEnabled;
     }
 }

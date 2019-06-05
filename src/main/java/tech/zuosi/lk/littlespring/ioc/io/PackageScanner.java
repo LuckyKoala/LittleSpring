@@ -1,8 +1,8 @@
-package tech.zuosi.lk.littlespring.io;
+package tech.zuosi.lk.littlespring.ioc.io;
 
-import tech.zuosi.lk.littlespring.exception.InvalidPackageException;
-import tech.zuosi.lk.littlespring.exception.NoSuitableConstructorForComponentException;
-import tech.zuosi.lk.littlespring.ioc.BeanFactory;
+import tech.zuosi.lk.littlespring.ioc.exception.InvalidPackageException;
+import tech.zuosi.lk.littlespring.ioc.exception.NoSuitableConstructorForComponentException;
+import tech.zuosi.lk.littlespring.ioc.processor.BeanFactory;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

@@ -2,8 +2,8 @@ package tech.zuosi.lk.littlespring.ioc.autowiring;
 
 import org.junit.Test;
 import tech.zuosi.lk.littlespring.LittleSpring;
-import tech.zuosi.lk.littlespring.exception.InvalidPackageException;
 import tech.zuosi.lk.littlespring.ioc.annotation.ComponentScan;
+import tech.zuosi.lk.littlespring.ioc.exception.InvalidPackageException;
 
 /**
  * Created by luckykoala on 19-3-1.
